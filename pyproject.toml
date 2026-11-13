@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dynamic-island"
+version = "1.0.0"
+description = "Dynamic Island for Windows 11"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [{ name = "arielDirema" }]
+dependencies = [
+    "PySide6",
+    "psutil",
+    "pycaw",
+    "comtypes",
+    "pywin32",
+    "screen-brightness-control",
+    "winrt-runtime",
+    "winrt-Windows.Media.Control",
+    "winrt-Windows.Foundation",
+    "winrt-Windows.Foundation.Collections",
+    "winrt-Windows.Storage.Streams",
+    "winrt-Windows.Devices.Radios",
+    "tzdata",
+    "icalendar",
+    "recurring-ical-events",
+    "qrcode",
+    "cryptography",
+    "Babel",
+    "winrt-Windows.UI.Notifications",
+    "winrt-Windows.UI.Notifications.Management",
+    "winrt-Windows.ApplicationModel",
+    "winrt-Windows.Devices.Bluetooth",
+    "winrt-Windows.Devices.Enumeration",
+    "winrt-Windows.Networking",
+    "winrt-Windows.Networking.Connectivity",
+    "winrt-Windows.Networking.NetworkOperators",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["dynamic_island*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q --import-mode=importlib"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+ignore = ["E731", "E741"]

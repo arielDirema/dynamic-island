@@ -1,9 +1,9 @@
-"""Lance le gardien de la Dynamic Island depuis les sources (voir watchdog.py)."""
+"""Run the Dynamic Island watchdog from source (see core/application/watchdog.py)."""
 import os
 import sys
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "src"))
 
-import watchdog  # noqa: E402
+from dynamic_island.core.application.watchdog import main  # noqa: E402
 
-watchdog.main()
+main()

@@ -15,6 +15,7 @@ icalendar
 recurring-ical-events
 qrcode
 cryptography
+Babel
 winrt-Windows.UI.Notifications
 winrt-Windows.UI.Notifications.Management
 winrt-Windows.ApplicationModel

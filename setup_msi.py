@@ -1,31 +1,31 @@
-"""Construction de l'application Windows (cx_Freeze).
+"""Build the Windows application with cx_Freeze.
 
-    python setup_msi.py build_exe   → build/  (application portable : DynamicIsland.exe)
-    python setup_msi.py bdist_msi   → dist/   (installateur Windows .msi)
+    python setup_msi.py build_exe   -> build/  (portable application: DynamicIsland.exe)
+    python setup_msi.py bdist_msi   -> dist/   (Windows .msi installer)
 
-L'installateur s'installe pour l'utilisateur courant (sans droits administrateur) dans
-%LOCALAPPDATA%\\Programs\\Dynamic Island, crée les raccourcis menu Démarrer + Bureau et le
-démarrage avec Windows ; tout est retiré à la désinstallation (les données de
-%APPDATA%\\DynamicIsland sont conservées)."""
+The installer targets the current user (no administrator rights) under
+%LOCALAPPDATA%\\Programs\\Dynamic Island, creates Start menu and Desktop shortcuts and enables
+startup with Windows. Uninstalling removes these; user data in
+%APPDATA%\\DynamicIsland is preserved."""
+import os
 import sys
 
 from cx_Freeze import Executable, setup
 
+ROOT = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(ROOT, "src"))  # let cx_Freeze analyze the package from src/
+
 VERSION = "1.0.0"
-UPGRADE_CODE = "{32BDF7EE-F765-4C20-AB17-EBB9CFFF65DA}"  # ne jamais changer : permet les mises à jour
+UPGRADE_CODE = "{32BDF7EE-F765-4C20-AB17-EBB9CFFF65DA}"  # never change: enables upgrades
 
 build_exe_options = {
     "packages": [
+        "dynamic_island",
         "winrt", "comtypes", "pycaw", "screen_brightness_control", "wmi", "icalendar",
         "recurring_ical_events", "qrcode", "cryptography", "tzdata", "psutil", "win32com",
-        "pythoncom", "pywintypes", "zoneinfo", "xml", "sqlite3", "asyncio", "ctypes",
+        "pythoncom", "pywintypes", "zoneinfo", "xml", "sqlite3", "asyncio", "ctypes", "babel",
     ],
-    "includes": [
-        "island", "watchdog", "paths", "theme", "ui", "icons", "store", "nlp", "system", "network", "hotspot",
-        "media", "agenda", "timers", "tasks", "infos", "binance", "devtools", "launcher", "files", "clipboard",
-        "phone", "tab_home", "tab_agenda", "tab_timers", "tab_tasks", "tab_launcher", "tab_files", "tab_phone",
-        "tab_infos", "tab_wallet", "tab_dev", "tab_controls", "tab_clip",
-    ],
+    "includes": [],
     "excludes": [
         "tkinter", "unittest", "pydoc_data", "test", "distutils", "setuptools", "pip",
         "PySide6.QtWebEngineCore", "PySide6.QtWebEngineWidgets", "PySide6.QtWebEngineQuick", "PySide6.QtWebView",
@@ -37,7 +37,8 @@ build_exe_options = {
         "PIL", "cx_Freeze",
     ],
     "include_files": [
-        ("phone_page.html", "phone_page.html"),
+        ("locales", "locales"),
+        ("resources/phone_page.html", "resources/phone_page.html"),
         ("assets/island.ico", "assets/island.ico"),
         ("README.md", "README.md"),
     ],
@@ -48,24 +49,24 @@ build_exe_options = {
 bdist_msi_options = {
     "upgrade_code": UPGRADE_CODE,
     "add_to_path": False,
-    "all_users": False,                                         # installation par utilisateur, sans UAC
+    "all_users": False,                                         # per-user installation, no UAC
     "initial_target_dir": r"[LocalAppDataFolder]Programs\Dynamic Island",
     "install_icon": "assets/island.ico",
     "product_code": None,
     "output_name": f"DynamicIsland-{VERSION}-win64.msi",
     "summary_data": {
         "author": "arielDirema",
-        "comments": "Dynamic Island pour Windows 11",
-        "keywords": "dynamic island, windows 11, barre des tâches",
+        "comments": "Dynamic Island for Windows 11",
+        "keywords": "dynamic island, windows 11, taskbar",
     },
     "data": {
-        # Raccourci sur le Bureau (celui du menu Démarrer est créé par l'exécutable ci-dessous)
+        # Desktop shortcut (the Start menu shortcut is created by the executable below)
         "Shortcut": [
             ("DesktopShortcut", "DesktopFolder", "Dynamic Island", "TARGETDIR",
-             "[TARGETDIR]DynamicIsland.exe", None, "Dynamic Island pour Windows 11", None, None, None, None,
+             "[TARGETDIR]DynamicIsland.exe", None, "Dynamic Island for Windows 11", None, None, None, None,
              "TARGETDIR"),
         ],
-        # Démarrage avec Windows (valeur gérée par l'installateur : retirée à la désinstallation)
+        # Start with Windows (managed by the installer; removed during uninstall)
         "Registry": [
             ("AutoStart", 1, r"Software\Microsoft\Windows\CurrentVersion\Run", "DynamicIsland",
              '"[TARGETDIR]DynamicIsland.exe"', "TARGETDIR"),
@@ -76,13 +77,13 @@ bdist_msi_options = {
 setup(
     name="Dynamic Island",
     version=VERSION,
-    description="Dynamic Island pour Windows 11",
+    description="Dynamic Island for Windows 11",
     author="arielDirema",
     options={"build_exe": build_exe_options, "bdist_msi": bdist_msi_options},
     executables=[
         Executable(
-            "dynamic_island.py",
-            base="gui" if sys.platform == "win32" else None,     # pas de console
+            "src/main.py",
+            base="gui" if sys.platform == "win32" else None,     # no console
             target_name="DynamicIsland.exe",
             icon="assets/island.ico",
             shortcut_name="Dynamic Island",

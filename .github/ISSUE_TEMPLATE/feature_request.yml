@@ -1,0 +1,30 @@
+name: Feature request
+description: Suggest a focused improvement in English.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+      description: What limitation are you trying to solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: impact
+    attributes:
+      label: Compatibility
+      options:
+        - label: This request may require a new dependency.
+        - label: This request may change an existing configuration or data format.
+        - label: This request affects user-facing text that must be localized.

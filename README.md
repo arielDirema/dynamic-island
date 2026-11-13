@@ -1,183 +1,277 @@
-# Dynamic Island pour Windows 11
+# Dynamic Island for Windows 11
 
-Une île flottante **noire** en haut de l'écran, inspirée de la Dynamic Island de l'iPhone et dessinée
-au style **Windows 11** (coins de 9-10 px, couleur d'accentuation de Windows, icônes Fluent).
-Elle remplace la barre des tâches : heure, média, notifications, réglages rapides, lanceur
-d'applications, fichiers, téléphone… tout est dans l'île.
+A floating **black island** at the top of the screen, inspired by the iPhone Dynamic Island and
+drawn in the **Windows 11** style: 9–10 px corners, the Windows accent color and Fluent icons.
+It replaces the taskbar: time, media, notifications, quick settings, application launcher,
+files, phone and more are all available from the island.
 
-Écrite en Python avec **PySide6** (Qt), sans dépendance à un service en ligne obligatoire.
+Built with Python and **PySide6** (Qt), with no mandatory online service.
 
 <p align="center">
-  <img src="docs/screenshots/pilule.png" alt="Île fermée : musique en cours" width="420"><br>
-  <em>Fermée, l'île affiche l'essentiel (ici, la musique en cours)</em>
+  <img src="docs/screenshots/pill.png" alt="Closed island showing current media" width="420"><br>
+  <em>When closed, the island shows the essentials (here, the current media)</em>
 </p>
 
-## Aperçu
+## Overview
 
-| Accueil | Contrôles |
+| Home | Controls |
 |---|---|
-| ![Accueil : heure, météo, musique, tâches du jour](docs/screenshots/accueil.png) | ![Contrôles : Wi-Fi, Bluetooth, volumes, luminosité](docs/screenshots/controles.png) |
-| **Lanceur** | **Minuteurs** |
-| ![Lanceur : favoris et applis récentes](docs/screenshots/lanceur.png) | ![Pomodoro et mode concentration](docs/screenshots/minuteurs.png) |
-| **Téléphone** | |
-| ![Téléphone : QR code de connexion (flouté)](docs/screenshots/telephone.png) | |
+| ![Home: time, weather, media and daily tasks](docs/screenshots/home.png) | ![Controls: Wi-Fi, Bluetooth, volume and brightness](docs/screenshots/controls.png) |
+| **Launcher** | **Timers** |
+| ![Launcher: favorites and recent applications](docs/screenshots/launcher.png) | ![Pomodoro and focus mode](docs/screenshots/timers.png) |
+| **Phone** | |
+| ![Phone: blurred connection QR code](docs/screenshots/phone.png) | |
 
 ---
 
-## Fonctionnement général
+## How it works
 
-| Geste | Effet |
+| Gesture | Effect |
 |---|---|
-| Survol | ouvre l'île (animation fluide à ressort) |
-| Clic sur la pilule | la garde ouverte · clic ailleurs ou `Échap` la referme |
-| Clic droit | menu : garder ouvert, démarrage avec Windows, barre des tâches, synchronisation, quitter |
-| Molette sur la pilule fermée | volume |
-| `Ctrl+Alt+V` | presse-papiers avec recherche |
-| `Ctrl+Alt+Espace` | lanceur d'applications |
-| Glisser des fichiers sur l'île | ils restent en attente sur l'étagère |
-| Clic sur une icône du dock | affiche l'appli (ou la réduit si elle est déjà au premier plan) |
-| Clic droit sur une icône du dock | fenêtres de l'appli, afficher, réduire, fermer, forcer l'arrêt |
+| Hover | Opens the island with a spring animation |
+| Click the pill | Keeps it open; click elsewhere or press `Esc` to close |
+| Right-click | Menu: keep open, start with Windows, taskbar, synchronization, quit |
+| Mouse wheel over the closed pill | Volume |
+| `Ctrl+Alt+V` | Clipboard history with search |
+| `Ctrl+Alt+Space` | Application launcher |
+| Drop files on the island | They wait on the shelf |
+| Click a dock icon | Shows the application, or minimizes it when already in front |
+| Right-click a dock icon | Application windows, show, minimize, close, force stop |
 
-**Dock des applications ouvertes** : à droite de la pilule, un second îlot noir affiche les icônes des applis
-ouvertes (trait d'accent sous l'appli au premier plan, icône estompée si réduite, nom au survol, « +N » au-delà
-de 9 applis). Il s'efface quand l'île s'ouvre. Désactivable par clic droit sur l'île.
+**Open-application dock**: a second black island to the right of the pill shows icons for open
+applications. An accent line marks the foreground application, minimized applications are dimmed,
+names appear on hover and `+N` appears beyond nine applications. The dock fades out while the
+island is open. It can be disabled from the island context menu.
 
-**Pilule fermée** : selon le contexte, elle affiche l'heure, le minuteur en cours, une réunion imminente,
-la musique en lecture ou un build en cours. Points vert / orange : caméra / micro utilisés.
+**Closed pill**: depending on context it shows the time, the active timer, an upcoming meeting,
+the current media or a running build. Green and orange dots indicate camera and microphone use.
 
-**Notifications de l'île** : volume, changement de morceau, sortie audio, batterie, Verr. Maj,
-fin de minuteur, rappels, CI en échec, fichier reçu du téléphone, appel entrant…
+**Island notifications**: volume, track changes, audio output, battery, Caps Lock, timer completion,
+reminders, failed CI, phone files, incoming calls and more.
 
-**Toujours présente** : l'île reste au-dessus de tout (même en plein écran), démarre avec Windows et un
-gardien (`island_watchdog.pyw`) la relance si elle plante.
+**Always available**: the island stays above other windows, including fullscreen applications,
+starts with Windows and is supervised by a watchdog (`island_watchdog.pyw`) that restarts it
+after a crash.
 
-**Barre des tâches masquée en permanence**, même au survol. La touche Windows ouvre toujours le menu
-Démarrer. Pour la retrouver : clic droit sur l'île › décocher *Masquer la barre des tâches*, ou *Quitter*
-(elle revient comme avant). Si l'île plante plusieurs fois de suite, le gardien réaffiche la barre.
+**Permanently hidden taskbar**: the taskbar remains hidden even on hover. The Windows key still
+opens the Start menu. To restore it, right-click the island and clear *Hide the taskbar*, or choose
+*Quit*. If the island crashes repeatedly, the watchdog restores the taskbar.
 
 ---
 
-## Onglets
+## Tabs
 
-| Onglet | Contenu |
+| Tab | Contents |
 |---|---|
-| **Accueil** | Heure, date, météo, lecteur multimédia (bouton pour **ouvrir l'appli qui joue** : Spotify, navigateur…), prochains événements avec bouton *Rejoindre*, anniversaires, tâches du jour, minuteurs actifs |
-| **Agenda** | À venir · Semaine · Mois · Comptes. Ajout rapide en français (« Réunion demain 14h30 », « Anniversaire Léa 12/03 »), modification, suppression, rappels, compte à rebours, liens Teams / Zoom / Meet détectés |
-| **Minuteurs** | Minuteurs multiples (« 12m thé »), Pomodoro avec pauses, mode concentration (active *Ne pas déranger*), chronomètre avec tours, alarmes (« 7h30 Réveil semaine »), statistiques et historique |
-| **Tâches** | Aujourd'hui · Toutes · Projets · Notes. « Envoyer devis demain 9h !haute #client » crée une tâche avec échéance, rappel, priorité et projet. Notes rapides épinglables, recherche |
-| **Lanceur** | *Lancer* : recherche d'applications (menu Démarrer + Microsoft Store), favoris, groupes lancés en un clic, applis récemment utilisées. *En cours* : applications ouvertes avec leurs fenêtres et leur mémoire — afficher, réduire, fermer, forcer l'arrêt |
-| **Fichiers** | Étagère (ouvrir, copier / déplacer vers…, presse-papiers, glisser vers une autre appli), téléchargements en cours (pourcentage et temps restant pour Chrome / Edge / Brave), fichiers récents, dossiers favoris, raccourcis sur le Bureau |
-| **Téléphone** | QR code → page web sur le téléphone (même Wi-Fi, HTTPS local, lien secret) : fichiers PC ⇄ téléphone, texte et presse-papiers dans les deux sens, télécommande, batterie. Notifications et appels via *Lien avec Windows*. QR code du Wi-Fi |
-| **Infos** | Widgets personnalisables : météo et prévisions, heure mondiale, statistiques, citation du jour, actualités RSS, bourse, photo favorite, calendrier |
-| **Finances** | Portefeuille **Binance** en lecture seule (Spot, Financement, Earn), en $ / FCFA / €, variation 24 h, historique, mode masqué |
-| **Dev** | IDE et projet ouverts (VS Code, IntelliJ, PyCharm, Visual Studio…), branche et statut Git, commits, GitHub (PR, issues, CI, déploiements, notifications), Jenkins, build local et erreurs, logs, serveurs et ports locaux, services, projets favoris |
-| **Contrôles** | Réglages rapides façon Windows 11 : **Wi-Fi**, **Bluetooth** et **point d'accès mobile** (le chevron `›` ouvre un panneau détaillé), appareils du réseau, mode avion, éclairage nocturne, Ne pas déranger, micro, caméra, sortie audio, verrouiller, veille, volume général et par appli, luminosité |
-| **Presse-papiers** | Historique des textes, liens, images et fichiers, recherche, catégories, épingler, coller directement dans l'appli active |
+| **Home** | Time, date, weather, media player (button to **open the playing application**: Spotify, browser…), upcoming events with a *Join* button, birthdays, daily tasks and active timers |
+| **Agenda** | Upcoming · Week · Month · Accounts. Quick entry in English or French (“Meeting tomorrow 2:30 pm”, “Anniversaire Léa 12/03”), editing, deletion, reminders, countdowns and detected Teams / Zoom / Meet links |
+| **Timers** | Multiple countdowns (“12m tea”), Pomodoro with breaks, focus mode (enables *Do Not Disturb*), stopwatch with laps, alarms (“7:30 Wake up weekdays”), statistics and history |
+| **Tasks** | Today · All · Projects · Notes. “Send quote tomorrow 9am !high #client” creates a task with due date, reminder, priority and project. Pinnable quick notes and search |
+| **Launcher** | *Launch*: application search (Start menu and Microsoft Store), favorites, one-click groups and recent applications. *Running*: open applications with their windows and memory use — show, minimize, close or force stop |
+| **Files** | Shelf (open, copy/move to…, clipboard, drag to another application), active downloads (percentage and remaining time for Chrome / Edge / Brave), recent files, favorite folders and Desktop shortcuts |
+| **Phone** | QR code to open a companion web page on the phone (same Wi-Fi, local HTTPS, secret link): file transfer both ways, text and clipboard in both directions, remote control and battery. Notifications and calls through *Phone Link*. Wi-Fi QR code |
+| **Info** | Customizable widgets: weather and forecast, world clock, statistics, quote of the day, RSS news, stocks, favorite photo and calendar |
+| **Wallet** | Read-only **Binance** portfolio (Spot, Funding, Earn) in USD / XOF / EUR, 24-hour change, history and hidden mode |
+| **Developer** | Open IDE and project (VS Code, IntelliJ, PyCharm, Visual Studio…), Git branch and status, commits, GitHub (PRs, issues, CI, deployments, notifications), Jenkins, local build output and errors, logs, local servers and ports, services and favorite projects |
+| **Controls** | Windows 11-style quick settings: **Wi-Fi**, **Bluetooth** and **mobile hotspot** (the `›` chevron opens a detailed panel), network devices, airplane mode, night light, Do Not Disturb, microphone, camera, audio output, lock, sleep, master and per-application volume, brightness |
+| **Clipboard** | History of text, links, images and files, search, categories, pinning and direct paste into the active application |
 
-### Panneaux Wi-Fi, Bluetooth, point d'accès et réseau
-- **Wi-Fi** : réseaux visibles avec force du signal et sécurité, réseau connecté en tête.
-  Connexion en un clic aux réseaux enregistrés ou ouverts, saisie du mot de passe pour un nouveau réseau
-  (WPA2 / WPA3), déconnexion, oubli d'un réseau (double confirmation).
-- **Bluetooth** : appareils appairés avec leur état. Connexion / déconnexion des casques et enceintes en un clic.
-  *Ajouter un appareil* ouvre l'appairage de Windows.
-- **Point d'accès mobile** : activation / arrêt du partage de connexion de Windows, nom, mot de passe
-  (affichable, modifiable ou généré), bande (automatique, 2,4 GHz, 5 GHz), QR code pour connecter un appareil,
-  liste des appareils connectés (nom, adresse IP, adresse MAC).
-  **Bloquer** un appareil : Windows ne permet pas d'éjecter un appareil précis, l'île change donc le mot de passe
-  et redémarre le point d'accès ; les autres appareils se reconnectent avec le nouveau mot de passe (QR code).
-  Un appareil bloqué qui revient est signalé.
-- **Appareils réseau** : appareils présents sur le Wi-Fi actuel (box / routeur, cet ordinateur, autres appareils
-  avec IP, MAC et nom). Le blocage sur ce réseau se fait dans l'administration du routeur (bouton *Administrer*).
+### Wi-Fi, Bluetooth, hotspot and network panels
 
-> Certaines cartes Wi-Fi ne peuvent pas créer de point d'accès quand leur Wi-Fi Direct est déjà utilisé
-> (Lien avec Windows, partage de proximité, projection) : l'île affiche alors la cause.
+- **Wi-Fi**: visible networks with signal strength and security, connected network first. One-click
+  connection to saved or open networks, password entry for new networks (WPA2 / WPA3), disconnect
+  and forget a network (double confirmation).
+- **Bluetooth**: paired devices with state. Connect and disconnect headsets and speakers in one click.
+  *Add a device* opens Windows pairing.
+- **Mobile hotspot**: start and stop Windows connection sharing, set the name, password
+  (shown, edited or generated) and band (automatic, 2.4 GHz, 5 GHz), show a QR code for connecting
+  a device and list connected devices (name, IP address, MAC address).
+  **Blocking** a device is implemented by changing the password and restarting the hotspot, because
+  Windows cannot eject a single hotspot client. Other devices reconnect with the new password (QR code).
+  A blocked device that returns is reported.
+- **Network devices**: devices on the current Wi-Fi (router/box, this computer and other devices with
+  IP, MAC and name). Blocking on that network is done from the router administration (*Administer* button).
+
+> Some Wi-Fi adapters cannot create a hotspot while Wi-Fi Direct is already in use by Phone Link,
+> nearby sharing or projection. The island reports the cause.
 
 ---
 
-## Connexions facultatives
+## Optional integrations
 
-- **Google Agenda / Outlook / Teams** : Agenda › Comptes › coller l'adresse iCal secrète.
-- **GitHub** : Dev › GitHub › coller un jeton personnel (notifications et dépôts privés). Sans jeton, les dépôts publics fonctionnent.
-- **Jenkins** : Dev › Builds › « URL utilisateur jeton ».
-- **Binance** : Finances › clé API **en lecture seule** puis clé secrète.
-- **Téléphone** : Téléphone › Activer › scanner le QR. Au premier accès, le navigateur avertit (certificat local) :
-  « Paramètres avancés › Continuer ». Windows peut demander d'autoriser Python sur le réseau privé.
-- **Synchronisation cloud** : clic droit › *Synchroniser via un dossier cloud…* (OneDrive, Google Drive, Dropbox) :
-  tâches, notes, agenda local, alarmes, sessions et presse-papiers partagés entre plusieurs PC.
-- **Météo** : position estimée via l'adresse IP (ipwho.is), données Open-Meteo ; ville modifiable dans Infos › Modifier.
+- **Google Calendar / Outlook / Teams**: Agenda › Accounts › paste the secret iCal address.
+- **GitHub**: Developer › GitHub › paste a personal token for notifications and private repositories.
+  Public repositories work without a token.
+- **Jenkins**: Developer › Builds › enter `URL user token`.
+- **Binance**: Wallet › **read-only** API key, then the secret key.
+- **Phone**: Phone › Enable › scan the QR code. On first access the browser warns about the local
+  certificate: *Advanced › Continue*. Windows may ask to allow Python on the private network.
+- **Cloud synchronization**: right-click › *Sync through a cloud folder…* (OneDrive, Google Drive,
+  Dropbox). Tasks, notes, local agenda, alarms, sessions and clipboard histories are shared between PCs.
+- **Weather**: location estimated from the IP address (ipwho.is), data from Open-Meteo. The city can be
+  changed in Info › Edit.
 
-## Données et confidentialité
+## Data and privacy
 
-Tout est stocké localement dans `%APPDATA%\DynamicIsland` (ou dans le dossier de synchronisation choisi) :
-réglages, clés API, historique du presse-papiers, certificat du serveur téléphone. Rien de tout cela n'est
-dans ce dépôt. Les clés (GitHub, Binance) y sont en clair : utilisez des clés à droits limités.
+Settings and API keys are written immediately to `%APPDATA%\DynamicIsland\settings.json`, so they
+survive restarts and reboots. The previous good copy is kept as `settings.json.bak`; a file that
+cannot be read is preserved as `settings.json.corrupt` instead of being overwritten. Synchronized
+collections (tasks, notes, agenda, clipboard) live in the selected cloud folder; credentials are
+never synchronized and stay local to the Windows account. The phone server certificate is also in
+`%APPDATA%\DynamicIsland`. None of this is stored in this repository. GitHub, Binance and Jenkins
+credentials are stored in plain text; use keys with restricted permissions.
 
 ---
 
 ## Installation
 
-### Installateur Windows (recommandé)
+### Windows installer (recommended)
 
-1. Téléchargez **`DynamicIsland-1.0.0-win64.msi`** depuis la page
-   [Releases](https://github.com/arielDirema/dynamic-island/releases).
-2. Double-cliquez dessus et suivez l'assistant. **Aucun droit administrateur n'est nécessaire** :
-   l'application s'installe pour votre compte dans `%LOCALAPPDATA%\Programs\Dynamic Island`.
-3. Lancez **Dynamic Island** depuis le menu Démarrer ou le raccourci du Bureau. Elle démarrera ensuite
-   automatiquement avec Windows.
+1. Download **`DynamicIsland-1.0.0-win64.msi`** from the
+   [Releases](https://github.com/arielDirema/dynamic-island/releases) page.
+2. Run it and follow the wizard. **Administrator rights are not required**: the application installs
+   for the current user in `%LOCALAPPDATA%\Programs\Dynamic Island`.
+3. Launch **Dynamic Island** from the Start menu or the Desktop shortcut. It will start with Windows
+   on subsequent launches.
 
-Windows SmartScreen peut afficher « Windows a protégé votre ordinateur » (l'installateur n'est pas signé) :
-cliquez sur *Informations complémentaires* › *Exécuter quand même*.
+Windows SmartScreen may display “Windows protected your PC” because the installer is not signed.
+Choose *More info* › *Run anyway*.
 
-**Désinstaller** : Paramètres › Applications › Applications installées › *Dynamic Island* › Désinstaller.
-Quittez d'abord l'île (clic droit › Quitter) pour récupérer la barre des tâches. Vos données
-(`%APPDATA%\DynamicIsland`) sont conservées.
+**Uninstall**: Settings › Apps › Installed apps › *Dynamic Island* › Uninstall. Quit the island first
+(right-click › Quit) to restore the taskbar. Your data in `%APPDATA%\DynamicIsland` is preserved.
 
-**Version portable** : `DynamicIsland-1.0.0-portable-win64.zip` — décompressez où vous voulez et lancez
-`DynamicIsland.exe` (sans installation).
+**Portable build**: `DynamicIsland-1.0.0-portable-win64.zip` can be extracted anywhere and started with
+`DynamicIsland.exe` without installation.
 
-### Depuis les sources
+### From source
 
-Prérequis : **Windows 11** et **Python 3.12**.
+Requirements: **Windows 11** and **Python 3.12**.
 
-```bash
+```powershell
 git clone https://github.com/arielDirema/dynamic-island.git
 cd dynamic-island
 python -m venv .venv
-.venv\Scripts\python -m pip install -r requirements.txt
+.\.venv\Scripts\python -m pip install -r requirements.txt
 ```
 
-Lancer : double-clic sur `start.bat` (il démarre le gardien, qui démarre l'île). Le démarrage avec Windows
-est activé au premier lancement (désactivable par clic droit sur l'île).
+Launch by double-clicking `start.bat`. It starts the watchdog, which starts the island. Autostart with
+Windows is enabled on first launch and can be disabled from the island context menu.
 
-### Construire l'installateur
+Command-line entry points:
 
-```bash
-.venv\Scripts\python -m pip install cx_Freeze pillow
-.venv\Scripts\python tools\make_icon.py
-.venv\Scripts\python setup_msi.py bdist_msi
+```powershell
+.\.venv\Scripts\python src\main.py            # watchdog + island
+.\.venv\Scripts\python src\main.py --island   # island only (used by the watchdog)
+.\.venv\Scripts\python src\main.py --selftest # report in %TEMP%\DynamicIsland-selftest.txt
 ```
 
-Résultat : `dist\DynamicIsland-<version>-win64.msi` (et l'application seule dans `build\`).
-`DynamicIsland.exe --selftest` vérifie chaque composant et écrit un rapport dans
+`island.py`, `dynamic_island.py`, `watchdog.py` and `island_watchdog.pyw` remain at the repository root
+as compatibility entry points and delegate to the `src/dynamic_island` package.
+
+### Tests and localization validation
+
+```powershell
+.\.venv\Scripts\python -m pytest
+.\.venv\Scripts\python -m ruff check src tests scripts
+.\.venv\Scripts\python scripts\validate_locales.py
+```
+
+The test suite covers shared formatting, English and French date parsing, storage and synchronization,
+localization loading and fallback, locale-aware formatting, layer boundaries, import cycles, all module
+imports and the full application shell import.
+
+### Build the installer
+
+```powershell
+.\.venv\Scripts\python -m pip install cx_Freeze pillow
+.\.venv\Scripts\python tools\make_icon.py
+.\.venv\Scripts\python setup_msi.py bdist_msi
+```
+
+Results: `dist\DynamicIsland-<version>-win64.msi` and the standalone application in `build\`.
+`DynamicIsland.exe --selftest` verifies every component and writes its report to
 `%TEMP%\DynamicIsland-selftest.txt`.
 
-## Structure du code
+The **Build MSI** GitHub Actions workflow runs on pushes, pull requests and manual dispatches.
+Every run uploads the installer as a workflow artifact. Pushing a `v*` tag also creates or updates
+the matching GitHub release and attaches the MSI to it.
 
-| Fichier | Rôle |
-|---|---|
-| `island.py` | fenêtre, animation, pilule, notifications, saisie, menu, démarrage |
-| `dynamic_island.py` | point d'entrée de l'application installée (gardien, île, auto-test) |
-| `watchdog.py`, `island_watchdog.pyw` | gardien : relance l'île en cas de plantage |
-| `paths.py` | emplacements des fichiers (sources ou application installée) |
-| `setup_msi.py`, `tools/make_icon.py`, `assets/` | construction de l'installateur, icône |
-| `ui.py`, `theme.py`, `icons.py` | composants Windows 11 dessinés, thème, icônes vectorielles |
-| `tab_*.py` | un fichier par onglet |
-| `system.py` | audio, luminosité, radios, Ne pas déranger, barre des tâches, fenêtres |
-| `network.py` | réseaux Wi-Fi et appareils Bluetooth |
-| `hotspot.py` | point d'accès mobile et appareils du réseau local |
-| `media.py` | média en lecture (contrôles multimédias de Windows) |
-| `agenda.py`, `timers.py`, `tasks.py`, `nlp.py` | agenda, minuteurs, tâches, saisie en français |
-| `launcher.py`, `files.py`, `clipboard.py` | lanceur, fichiers, presse-papiers |
-| `phone.py`, `phone_page.html` | serveur local et page web du téléphone |
-| `infos.py`, `binance.py`, `devtools.py` | widgets, Binance, espace développeur |
-| `store.py` | stockage local et synchronisation |
+## Language support
+
+English is the canonical source language and the fallback locale. French is included as a complete
+additional locale. The application selects a stored user preference first, then the system language,
+then English.
+
+Language files are external JSON catalogs:
+
+```text
+locales/
+├── en/messages.json
+└── fr/messages.json
+```
+
+Each catalog contains metadata, shared UI keys, feature namespaces and localized content such as
+quotes. A new language only requires a new directory with a complete `messages.json`; no Python source
+change is needed. The language selector is available in the island context menu and uses each language's
+native name. Selecting a language updates the window, tab labels, menus, formatted dates and numbers
+without a restart. The phone web page is rendered in the active language on its next request or reload.
+
+To add a language:
+
+1. Copy `locales/en/messages.json` to `locales/<locale>/messages.json`.
+2. Translate every value while keeping the key structure and placeholders unchanged.
+3. Update the `meta` block (`language`, `native_name`, `english_name`, `direction`).
+4. Run `python scripts/validate_locales.py`.
+
+The validator reports missing, extra and empty keys, duplicate JSON keys, placeholder mismatches,
+invalid metadata, unsupported locale identifiers and source keys missing from the canonical catalog.
+
+## Project structure
+
+```text
+src/
+├── main.py                          source entry point (watchdog, island, self-test)
+└── dynamic_island/
+    ├── app.py                       single instance, window, icon and Qt loop
+    ├── main.py                      CLI and self-test
+    ├── core/
+    │   ├── application/             watchdog and Windows autostart
+    │   ├── config/                  paths and persistent settings
+    │   ├── localization/            catalog loader, resolver, manager and public API
+    │   └── utilities/               animation and shared formatting
+    ├── models/                      domain keys and metadata
+    ├── infrastructure/
+    │   ├── storage/                 JSON collections and synchronization
+    │   └── windows_api.py           shared Win32 calls
+    ├── engines/                     agenda, timers, tasks, files, media, network…
+    ├── services/                    phone server and system controls
+    └── ui/
+        ├── windows/                 island window and layout constants
+        ├── components/              drawing, island painting and tray menu
+        ├── tabs/                    one module per tab plus an explicit registry
+        ├── themes/                  Windows 11 theme
+        └── resources/               Fluent icons
+locales/<language>/messages.json     external translations
+resources/phone_page.html            phone web page template
+scripts/validate_locales.py          localization validator
+tests/unit/, tests/architecture/
+assets/island.ico
+```
+
+Dependency rules and architectural decisions are documented in
+[`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+
+## Contributing
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md). Issues, pull requests, commit messages and technical
+discussions are expected in English. Keep user-facing strings in the external catalogs and run the
+localization validator before opening a pull request.
+
+## Security
+
+See [`SECURITY.md`](SECURITY.md) for reporting vulnerabilities and the local-data model.
+
+## License
+
+No license file is currently included in this repository. Add an explicit license before redistributing
+or reusing the project outside its current distribution channels.

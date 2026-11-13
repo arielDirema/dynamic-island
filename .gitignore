@@ -1,21 +1,25 @@
-# Environnement Python
+# Python environment
 .venv/
 venv/
 __pycache__/
 *.py[cod]
 
-# Données locales (elles vivent dans %APPDATA%\DynamicIsland, jamais dans le dépôt)
+# Local data (stored in %APPDATA%\DynamicIsland, never in the repository)
 settings.json
 *.pem
 *.log
 
-# Système / éditeurs
+# OS / editors
 .vscode/
 .idea/
 Thumbs.db
 desktop.ini
 
-# Construction (cx_Freeze)
+# cx_Freeze build output
 build/
 dist/
 *.egg-info/
+
+# Development tools
+.ruff_cache/
+.pytest_cache/

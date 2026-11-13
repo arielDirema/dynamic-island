@@ -1,0 +1,990 @@
+{
+  "meta": {
+    "language": "fr",
+    "native_name": "Français",
+    "english_name": "French",
+    "direction": "ltr",
+    "version": 1
+  },
+  "app": {
+    "name": "Dynamic Island",
+    "description": "Une île dynamique Windows 11 pour les médias, les tâches, les notifications et les réglages rapides."
+  },
+  "common": {
+    "ok": "OK",
+    "cancel": "Annuler",
+    "close": "Fermer",
+    "save": "Enregistrer",
+    "confirm": "Confirmer",
+    "delete": "Supprimer",
+    "remove": "Retirer",
+    "add": "Ajouter",
+    "edit": "Modifier",
+    "search": "Rechercher",
+    "refresh": "Actualiser",
+    "open": "Ouvrir",
+    "copy": "Copier",
+    "copied": "Copié",
+    "clear": "Effacer",
+    "choose": "Choisir…",
+    "browse": "Parcourir…",
+    "apply": "Appliquer",
+    "back": "Retour",
+    "done": "Terminé",
+    "loading": "Chargement…",
+    "none": "Aucun",
+    "all": "Tout",
+    "yes": "Oui",
+    "no": "Non",
+    "on": "Activé",
+    "off": "Désactivé",
+    "enabled": "Activé",
+    "disabled": "Désactivé",
+    "unknown": "Inconnu",
+    "today": "Aujourd'hui",
+    "tomorrow": "Demain",
+    "yesterday": "Hier",
+    "now": "Maintenant",
+    "download": "Télécharger",
+    "upload": "Envoyer",
+    "send": "Envoyer",
+    "start": "Démarrer",
+    "stop": "Arrêter",
+    "pause": "Pause",
+    "resume": "Reprendre",
+    "enable": "Activer",
+    "disable": "Désactiver",
+    "retry": "Réessayer",
+    "details": "Détails",
+    "more": "Plus",
+    "minutes_short": "min",
+    "hours_short": "h",
+    "seconds_short": "s",
+    "all_day": "Toute la journée",
+    "join": "Rejoindre",
+    "auto": "Automatique",
+    "clipboard": "Presse-papiers",
+    "folder": "Dossier",
+    "link": "Lien"
+  },
+  "units": {
+    "byte": "{value} o",
+    "kilobyte": "{value} Ko",
+    "megabyte": "{value} Mo",
+    "gigabyte": "{value} Go",
+    "terabyte": "{value} To",
+    "minutes": "{count} min",
+    "hours": "{count} h",
+    "seconds": "{count} s",
+    "hours_minutes": "{hours} h {minutes:02d}",
+    "per_second": "{value}/s",
+    "percent": "{value} %",
+    "minutes_seconds": "{minutes} min {seconds:02d} s"
+  },
+  "time": {
+    "just_now": "à l'instant",
+    "minutes_ago": "il y a {count} min",
+    "hours_ago": "il y a {count} h",
+    "yesterday": "hier",
+    "days_ago": "il y a {count} j",
+    "now": "maintenant",
+    "in_minutes": "dans {count} min",
+    "in_hours": "dans {hours} h {minutes:02d}",
+    "in_days": "dans {count} j"
+  },
+  "languages": {
+    "title": "Langue",
+    "description": "Choisissez la langue de l'application.",
+    "changed": "Langue changée en {language}.",
+    "unavailable": "La langue demandée n'est pas disponible."
+  },
+  "tabs": {
+    "home": "Accueil",
+    "agenda": "Agenda",
+    "timers": "Minuteurs",
+    "tasks": "Tâches",
+    "launcher": "Lanceur",
+    "files": "Fichiers",
+    "phone": "Téléphone",
+    "infos": "Infos",
+    "wallet": "Portefeuille",
+    "dev": "Développeur",
+    "controls": "Contrôles",
+    "clip": "Presse-papiers",
+    "agenda.views": {
+      "up": "À venir",
+      "week": "Semaine",
+      "month": "Mois",
+      "accounts": "Comptes"
+    },
+    "timers.views": {
+      "timers": "Minuteurs",
+      "pomo": "Pomodoro",
+      "sw": "Chrono",
+      "alarms": "Alarmes",
+      "stats": "Statistiques"
+    },
+    "tasks.views": {
+      "today": "Aujourd'hui",
+      "all": "Toutes",
+      "projects": "Projets",
+      "notes": "Notes"
+    },
+    "files.views": {
+      "shelf": "Étagère",
+      "downloads": "Téléchargements",
+      "recent": "Récents",
+      "favorites": "Favoris"
+    },
+    "dev.views": {
+      "git": "Git",
+      "github": "GitHub",
+      "builds": "Builds",
+      "servers": "Serveurs",
+      "projects": "Projets"
+    }
+  },
+  "home": {
+    "weather": {
+      "details": "Pluie {rain} % · ressenti {feels}°"
+    },
+    "upcoming": "À venir",
+    "agenda_link": "Agenda ›",
+    "no_upcoming": "Aucun événement prévu — ajoutez-en dans l'onglet Agenda",
+    "birthday_age": " ({age} ans)",
+    "today_tasks": "Tâches du jour",
+    "tasks_done": "{done}/{total} faites ›",
+    "add_task_placeholder": "Ajouter une tâche… (ex : Appeler Paul 15h !haute)",
+    "no_tasks": "Rien d'urgent aujourd'hui"
+  },
+  "tasks": {
+    "priority": {
+      "low": "Faible",
+      "medium": "Moyenne",
+      "high": "Élevée"
+    },
+    "add_placeholder": "Nouvelle tâche… « Envoyer devis demain 9h !haute #client »",
+    "add_placeholder_project": "Nouvelle tâche dans #{project}…",
+    "show_completed": "Afficher terminées",
+    "all_done": "Tout est fait pour aujourd'hui",
+    "none": "Aucune tâche",
+    "hint": "Astuce : !haute / !moyenne / !faible, #projet, demain 9h, lundi…",
+    "note_edit_placeholder": "Modifier la note (Entrée = enregistrer, vide = supprimer)",
+    "note_add_placeholder": "Nouvelle note rapide… (Entrée)",
+    "no_notes": "Aucune note",
+    "notes_pinned_hint": "Les notes épinglées restent en haut"
+  },
+  "clipboard": {
+    "categories": {
+      "all": "Tout",
+      "text": "Texte",
+      "links": "Liens",
+      "contacts": "Contacts",
+      "images": "Images",
+      "files": "Fichiers",
+      "pinned": "Épinglés"
+    },
+    "kinds": {
+      "text": "Texte",
+      "link": "Lien",
+      "email": "E-mail",
+      "phone": "Téléphone",
+      "image": "Image",
+      "files": "Fichiers",
+      "unknown": "Élément"
+    },
+    "search_placeholder": "Rechercher dans l'historique…   (Ctrl+Alt+V)",
+    "no_results": "Aucun résultat",
+    "empty": "L'historique est vide",
+    "hint": "Tout ce que vous copiez apparaît ici · Entrée = coller",
+    "contains": "contient {tags}",
+    "image_size": "Image {width}×{height}",
+    "tags": {
+      "link": "lien",
+      "email": "e-mail",
+      "phone": "numéro",
+      "unknown": "élément"
+    }
+  },
+  "weather": {
+    "wmo": {
+      "clear": "Ciel dégagé",
+      "mostly_clear": "Plutôt dégagé",
+      "partly_cloudy": "Partiellement nuageux",
+      "overcast": "Couvert",
+      "fog": "Brouillard",
+      "rime_fog": "Brouillard givrant",
+      "light_drizzle": "Bruine légère",
+      "drizzle": "Bruine",
+      "heavy_drizzle": "Bruine forte",
+      "light_rain": "Pluie faible",
+      "rain": "Pluie",
+      "heavy_rain": "Forte pluie",
+      "freezing_rain": "Pluie verglaçante",
+      "light_snow": "Neige faible",
+      "snow": "Neige",
+      "heavy_snow": "Forte neige",
+      "snow_grains": "Grains de neige",
+      "showers": "Averses",
+      "heavy_showers": "Fortes averses",
+      "snow_showers": "Averses de neige",
+      "thunderstorm": "Orage",
+      "thunderstorm_hail": "Orage et grêle",
+      "unknown": "Conditions inconnues"
+    }
+  },
+  "infos": {
+    "widgets": {
+      "weather": "Météo",
+      "clocks": "Heure mondiale",
+      "stats": "Statistiques",
+      "quote": "Citation du jour",
+      "news": "Actualités",
+      "stocks": "Bourse",
+      "photo": "Photo favorite",
+      "calendar": "Calendrier"
+    },
+    "choose_folder": "Choisir un dossier…",
+    "customize_title": "Personnaliser les widgets",
+    "widgets_title": "Widgets",
+    "edit": {
+      "city": "Ville de la météo : {city}",
+      "city_placeholder": "Changer de ville (Entrée)",
+      "clocks": "Heure mondiale : {cities}",
+      "clocks_placeholder": "Villes séparées par des virgules : Lomé, Paris, Montréal",
+      "stocks": "Bourse : {symbols}",
+      "stocks_placeholder": "Symboles Yahoo : AAPL, MSFT, BTC-USD, ^FCHI",
+      "feeds": "Actualités : {count} flux RSS",
+      "feeds_placeholder": "Ajouter un flux RSS (https://…)",
+      "photos": "Photos : {folder}",
+      "widgets_order": "Widgets affichés (ordre modifiable)"
+    },
+    "news_loading": "Chargement des flux…",
+    "no_photo": "Aucune photo trouvée — choisissez un dossier dans « Modifier »",
+    "photos_default": "Images",
+    "photos_dialog": "Dossier de photos favorites",
+    "quote_text": "« {quote} »",
+    "stats": {
+      "copies": "Copies",
+      "events": "Événements",
+      "focus": "Concentration",
+      "focus_streak": "Série focus",
+      "tasks_done": "Tâches faites",
+      "tasks_done_value": "{done} faites · {week} cette sem.",
+      "title": "Statistiques personnelles",
+      "uptime": "PC allumé depuis"
+    },
+    "stocks_loading": "Chargement des cours…",
+    "weather": {
+      "feels_like": "Ressenti",
+      "humidity": "Humidité",
+      "now": "Maint.",
+      "rain_chance": "pluie {value} %",
+      "same_time": "Même heure",
+      "time_offset": "{sign}{hours} h",
+      "unavailable": "Météo indisponible ({error})",
+      "wind": "Vent",
+      "wind_value": "{value} km/h",
+      "tomorrow_suffix": " (demain)",
+      "yesterday_suffix": " (hier)"
+    }
+  },
+  "hotspot": {
+    "bands": {
+      "automatic": "Automatique",
+      "2_4ghz": "2,4 GHz",
+      "5ghz": "5 GHz"
+    },
+    "blocked_reconnected": "Appareil bloqué reconnecté",
+    "device_blocked": "Appareil bloqué",
+    "new_password_hint": "{name} — nouveau mot de passe à partager",
+    "no_internet_to_share": "Pas de connexion Internet à partager",
+    "start_failed": "Point d'accès non démarré",
+    "started": "Point d'accès activé",
+    "title": "Point d'accès",
+    "unavailable": "Point d'accès indisponible ({error})",
+    "updated": "Point d'accès modifié"
+  },
+  "content": {
+    "quotes": [
+      [
+        "La simplicité est la sophistication suprême.",
+        "Léonard de Vinci"
+      ],
+      [
+        "Le génie est fait d'un pour cent d'inspiration et de quatre-vingt-dix-neuf pour cent de transpiration.",
+        "Thomas Edison"
+      ],
+      [
+        "Il n'y a qu'une façon d'échouer, c'est d'abandonner avant d'avoir réussi.",
+        "Georges Clemenceau"
+      ],
+      [
+        "Rien n'est impossible ; il y a des choses moins probables que d'autres.",
+        "Jean Cocteau"
+      ],
+      [
+        "Ce n'est pas parce que les choses sont difficiles que nous n'osons pas, c'est parce que nous n'osons pas qu'elles sont difficiles.",
+        "Sénèque"
+      ],
+      [
+        "La patience est amère, mais son fruit est doux.",
+        "Jean-Jacques Rousseau"
+      ],
+      [
+        "Le secret pour avancer, c'est de commencer.",
+        "Mark Twain"
+      ],
+      [
+        "Celui qui déplace une montagne commence par déplacer de petites pierres.",
+        "Confucius"
+      ],
+      [
+        "Le doute est le commencement de la sagesse.",
+        "Aristote"
+      ],
+      [
+        "Exige beaucoup de toi-même et attends peu des autres.",
+        "Confucius"
+      ],
+      [
+        "La vie, c'est comme une bicyclette, il faut avancer pour ne pas perdre l'équilibre.",
+        "Albert Einstein"
+      ],
+      [
+        "Un voyage de mille lieues commence toujours par un premier pas.",
+        "Lao-Tseu"
+      ],
+      [
+        "Le courage n'est pas l'absence de peur, mais la capacité de la vaincre.",
+        "Nelson Mandela"
+      ],
+      [
+        "On ne voit bien qu'avec le cœur.",
+        "Antoine de Saint-Exupéry"
+      ],
+      [
+        "Le temps est ce que nous voulons le plus, mais ce que nous utilisons le plus mal.",
+        "William Penn"
+      ],
+      [
+        "Fais de ta vie un rêve, et d'un rêve, une réalité.",
+        "Antoine de Saint-Exupéry"
+      ],
+      [
+        "La connaissance s'acquiert par l'expérience, tout le reste n'est que de l'information.",
+        "Albert Einstein"
+      ],
+      [
+        "Hâtez-vous lentement.",
+        "Nicolas Boileau"
+      ],
+      [
+        "Ce qui se conçoit bien s'énonce clairement.",
+        "Nicolas Boileau"
+      ],
+      [
+        "L'imagination est plus importante que le savoir.",
+        "Albert Einstein"
+      ],
+      [
+        "Le meilleur moyen de prédire l'avenir, c'est de le créer.",
+        "Peter Drucker"
+      ],
+      [
+        "Premature optimization is the root of all evil.",
+        "Donald Knuth"
+      ],
+      [
+        "Talk is cheap. Show me the code.",
+        "Linus Torvalds"
+      ],
+      [
+        "Programs must be written for people to read.",
+        "Harold Abelson"
+      ],
+      [
+        "Simplicity is prerequisite for reliability.",
+        "Edsger Dijkstra"
+      ],
+      [
+        "Make it work, make it right, make it fast.",
+        "Kent Beck"
+      ],
+      [
+        "Le travail éloigne de nous trois grands maux : l'ennui, le vice et le besoin.",
+        "Voltaire"
+      ],
+      [
+        "Qui veut voyager loin ménage sa monture.",
+        "Jean Racine"
+      ],
+      [
+        "La persévérance est la noblesse de l'obstination.",
+        "Adrien Decourcelle"
+      ],
+      [
+        "Tout ce qui mérite d'être fait mérite d'être bien fait.",
+        "Lord Chesterfield"
+      ]
+    ]
+  },
+  "agenda": {
+    "add_placeholder": "Ajouter : « Réunion demain 14h30 », « Anniversaire Léa 12/03 »",
+    "edit_placeholder": "Modifier : texte + date (Entrée)",
+    "event_added": "Événement ajouté",
+    "events_count": {
+      "one": "{count} événement",
+      "other": "{count} événements"
+    },
+    "feeds": {
+      "google": "Google Agenda",
+      "calendar": "Calendrier"
+    },
+    "ics_placeholder": "Coller l'adresse iCal (https://… ou webcal://…) puis Entrée",
+    "in_progress": "En cours",
+    "local_source": "Local",
+    "no_calendars": "Aucun calendrier connecté pour l'instant.",
+    "no_events": "Aucun événement",
+    "no_upcoming": "Aucun événement à venir",
+    "no_upcoming_hint": "Ajoutez-en ci-dessus ou connectez Google / Outlook dans « Comptes »",
+    "refresh_now": "Actualiser maintenant",
+    "reminder_before": "Rappel avant les réunions",
+    "sync_title": "Synchroniser Google Agenda, Outlook ou Teams",
+    "sync_help": "Google : Paramètres de l'agenda › « Adresse secrète au format iCal ». Outlook : Paramètres › Calendrier › Calendriers partagés › Publier › lien ICS. Les liens Teams / Zoom / Meet des événements sont détectés automatiquement.",
+    "syncing": "Synchronisation…",
+    "this_week": "Cette semaine",
+    "today_date": "Aujourd'hui · {date}",
+    "tomorrow_date": "Demain · {date}",
+    "untitled": "Sans titre",
+    "week_all_day": "Journée",
+    "birthday_age": " ({age} ans)"
+  },
+  "controls": {
+    "app_volume": "Volume par application",
+    "choose_output": "Choisir la sortie audio",
+    "no_audio_app": "Aucune application ne joue de son",
+    "no_output": "Aucune sortie",
+    "brightness_unavailable": "Luminosité non disponible sur cet écran",
+    "radio_disabled": "{name} désactivé",
+    "radio_disabled_hint": "Activez-le avec l'interrupteur en haut à droite",
+    "scanning": "Recherche…",
+    "tiles": {
+      "airplane": "Mode avion",
+      "night_light": "Éclairage nocturne",
+      "do_not_disturb": "Ne pas déranger",
+      "microphone": "Micro",
+      "microphone_muted": "Micro coupé",
+      "camera": "Caméra",
+      "camera_blocked": "Caméra bloquée",
+      "audio_output": "Sortie audio",
+      "lock": "Verrouiller",
+      "confirm": "Confirmer ?",
+      "sleep": "Veille",
+      "hotspot": "Point d'accès",
+      "network_devices": "Appareils réseau"
+    },
+    "status": {
+      "caps_lock": "Verr. Maj",
+      "num_lock": "Verr. Num",
+      "charging": "en charge"
+    },
+    "wifi": {
+      "settings": "Paramètres Wi-Fi",
+      "hidden_hint": "Les réseaux masqués se rejoignent depuis les paramètres",
+      "searching": "Recherche des réseaux…",
+      "none": "Aucun réseau trouvé",
+      "connecting": "Connexion…",
+      "connected": "Connecté · {value} %",
+      "saved": "Enregistré · {security}",
+      "open": "ouvert",
+      "secured": "sécurisé",
+      "open_unsecured": "Ouvert (non sécurisé)",
+      "disconnect": "Déconnecter",
+      "forget": "Oublier",
+      "connect": "Connecter",
+      "password_placeholder": "Mot de passe du réseau, puis Entrée",
+      "password_too_short": "Mot de passe trop court",
+      "password_minimum": "8 caractères minimum (WPA2)"
+    },
+    "bluetooth": {
+      "add_device": "Ajouter un appareil",
+      "connect_hint": "Connexion / déconnexion : casques et enceintes",
+      "loading": "Chargement des appareils…",
+      "none": "Aucun appareil appairé — utilisez « Ajouter un appareil »",
+      "connecting": "Connexion…",
+      "disconnecting": "Déconnexion…",
+      "connected": "Connecté",
+      "disconnected_from_island": "Déconnecté depuis l'île",
+      "paired_not_connected": "Appairé · non connecté",
+      "summary": "{status} · {kind}",
+      "kind": {
+        "audio": "Audio",
+        "phone": "Téléphone",
+        "input": "Clavier / souris",
+        "computer": "Ordinateur",
+        "device": "Appareil"
+      }
+    },
+    "hotspot": {
+      "title": "Point d'accès mobile",
+      "please_wait": "Patientez…",
+      "network_name": "Nom du réseau",
+      "password": "Mot de passe",
+      "new_password": "Nouveau mot de passe (8 caractères min.)",
+      "generate_password": "Générer un mot de passe",
+      "password_too_short": "Mot de passe trop court",
+      "password_minimum": "8 caractères minimum",
+      "disabled_hint": "Point d'accès désactivé — activez-le avec l'interrupteur en haut à droite",
+      "settings": "Paramètres du point d'accès",
+      "block_hint": "Bloquer = nouveau mot de passe + redémarrage",
+      "connected_devices": "Appareils connectés ({count}/{maximum})",
+      "no_devices": "Aucun appareil",
+      "ip_pending": "IP en attente",
+      "block": "Bloquer",
+      "blocked_devices": "Appareils bloqués ({count})",
+      "unblock": "Débloquer"
+    },
+    "lan": {
+      "title": "Appareils sur le réseau",
+      "scanning": "Analyse du réseau…",
+      "network_info": "Réseau {network} · cet ordinateur : {ip}",
+      "none": "Aucun appareil trouvé",
+      "router": "Routeur / box",
+      "this_computer": "Cet ordinateur",
+      "unknown_device": "Appareil inconnu",
+      "administer": "Administrer",
+      "block_hint": "Pour bloquer un appareil sur ce réseau, utilisez l'administration du routeur (bouton « Administrer »). Sur votre propre point d'accès, le blocage se fait depuis la tuile Point d'accès."
+    },
+    "night_settings_hint": "Cette version de Windows stocke l'éclairage nocturne dans un format que l'île ne peut pas modifier directement. Les paramètres Windows vont s'ouvrir pour l'activer ou le désactiver."
+  },
+  "files": {
+    "action_moved": "déplacé(s)",
+    "action_copied": "copié(s)",
+    "browser": "Navigateur",
+    "download_finished": "Téléchargement terminé",
+    "transferred": "{count} élément(s) {action}",
+    "add_folder": "Ajouter un dossier…",
+    "choose_destination": "Choisir la destination",
+    "copy_to": "Copier vers…",
+    "move_to": "Déplacer vers…",
+    "drag_here": "Glissez des fichiers dans l'île",
+    "drop_here": "Déposez ici",
+    "shelf_hint": "Ils restent en attente ici : ouvrez-les, copiez-les, ou faites-les glisser vers une autre application",
+    "download_progress": "{done} / {total} · {speed}{eta}",
+    "eta_remaining": " · reste {eta}",
+    "item_count": "{count} élément(s)",
+    "no_downloads": "Aucun téléchargement en cours",
+    "no_recent": "Aucun fichier récent",
+    "open_folder": "Ouvrir le dossier ›",
+    "other_folder": "Autre dossier…",
+    "progress_paused": "{size} · en pause · taille totale inconnue",
+    "progress_unknown": "{size} · {speed} · taille totale inconnue",
+    "recently_downloaded": "Récemment téléchargés",
+    "shelf_tip": "Astuce : faites glisser une ligne vers l'Explorateur, un e-mail, WhatsApp Web…",
+    "shortcut_created": "Raccourci créé sur le Bureau",
+    "shortcut_failed": "Raccourci impossible",
+    "shortcut_hint": "Survolez un dossier pour créer un raccourci sur le Bureau",
+    "favorite_folder": "Dossier favori",
+    "in_progress": "En cours"
+  },
+  "dev": {
+    "alerts": {
+      "ci_failed": "CI en échec",
+      "ci_success": "CI réussie",
+      "jenkins_failed": "Jenkins en échec",
+      "build_success": "Build réussi",
+      "build_failed": "Build en échec"
+    },
+    "builds": {
+      "local_build": "Build local",
+      "ci_running": "Builds CI en cours",
+      "help": "Lance la commande détectée (npm run build, mvn compile, dotnet build, php artisan test…)",
+      "in_progress": "en cours",
+      "jenkins_placeholder": "URL Jenkins [utilisateur jeton] — ex : http://localhost:8080 admin 11ab…",
+      "logs": "Logs importants du projet",
+      "no_command": "Aucune commande de build détectée",
+      "no_logs": "Aucune erreur dans les fichiers .log du projet",
+      "running": "En cours… {seconds} s",
+      "success": "Réussi en {seconds} s",
+      "failure": "Échec — {count} erreur(s)",
+      "error_count": "{project} · {count} erreur(s)"
+    },
+    "file_count": "{count} fichier(s)",
+    "git": {
+      "changes_summary": "{changes} modifications — {staged} indexé(s), {modified} modifié(s), {untracked} nouveau(x)",
+      "no_commits": "Aucun commit",
+      "no_repository": "Pas de dépôt Git pour ce projet",
+      "not_repository": "Pas un dépôt Git",
+      "recent_commits": "Commits récents",
+      "status": {
+        "clean": "Propre",
+        "modified": "Modifié",
+        "uncommitted": "Non commité"
+      }
+    },
+    "github": {
+      "actions": "CI / Actions",
+      "deployments": "Déploiements",
+      "issues": "Issues",
+      "loading": "Chargement de GitHub…",
+      "no_repository": "Aucun dépôt GitHub détecté",
+      "no_repository_hint": "Le remote « origin » doit pointer vers github.com",
+      "nothing": "Rien à afficher",
+      "notifications": "Notifications",
+      "pull_requests": "Pull requests",
+      "status": {
+        "running": "en cours",
+        "success": "réussi",
+        "failure": "échec"
+      },
+      "token_placeholder": "Jeton GitHub (facultatif : notifications + dépôts privés) puis Entrée",
+      "updated": "mis à jour {when}"
+    },
+    "jenkins": {
+      "unreachable": "Jenkins injoignable"
+    },
+    "no_ide": "Aucun IDE détecté",
+    "no_ide_hint": "Ouvrez VS Code, IntelliJ, PyCharm, Visual Studio… ou choisissez un projet dans « Projets »",
+    "projects": {
+      "favorites": "Favoris",
+      "favorites_hint": "Cliquez sur l'étoile pour épingler un projet",
+      "recent": "Récents (VS Code, JetBrains)"
+    },
+    "servers": {
+      "active": "Serveurs locaux actifs ({count})",
+      "admin_hint": "Démarrer / arrêter un service demande les droits administrateur.",
+      "confirm": "Confirmer",
+      "development_services": "Services de développement",
+      "none": "Aucun service (PostgreSQL, MySQL, Redis, Docker…) détecté"
+    },
+    "unknown_folder": "dossier inconnu"
+  },
+  "island": {
+    "audio": {
+      "output": "Sortie audio"
+    },
+    "battery": {
+      "charging": "En charge",
+      "charging_value": "Batterie à {percent} %",
+      "on_battery": "Sur batterie",
+      "remaining": "{percent} % restants",
+      "low": "Batterie faible",
+      "title": "Batterie {percent} %"
+    },
+    "build": {
+      "title": "Build {project}",
+      "seconds": "{seconds} s"
+    },
+    "camera": {
+      "active": "Caméra active",
+      "active_hint": "Une application utilise la webcam"
+    },
+    "clipboard": {
+      "pasted": "Collé"
+    },
+    "dock": {
+      "all_apps": "Toutes les applis ouvertes",
+      "window_count": " · {count} fenêtres",
+      "show": "Afficher",
+      "minimize": "Réduire",
+      "close": "Fermer",
+      "force_stop": "Forcer l'arrêt…",
+      "force_stop_message": "Forcer l'arrêt de {name} ?\nLes données non enregistrées seront perdues."
+    },
+    "event": {
+      "in_progress": "en cours"
+    },
+    "files": {
+      "pending": {
+        "one": "{count} élément en attente",
+        "other": "{count} éléments en attente"
+      },
+      "already_on_shelf": "Déjà sur l'étagère",
+      "copied": {
+        "one": "{count} fichier copié",
+        "other": "{count} fichiers copiés"
+      },
+      "paste_hint": "Collez-les dans l'Explorateur (Ctrl+V)"
+    },
+    "focus": {
+      "enabled": "Mode concentration activé",
+      "disabled": "Mode concentration terminé",
+      "active_hint": "Pomodoro de {minutes} min · Ne pas déranger",
+      "done": "Bon travail !"
+    },
+    "keyboard": {
+      "caps_on": "Verr. Maj activé",
+      "caps_off": "Verr. Maj désactivé",
+      "num_on": "Verr. Num activé",
+      "num_off": "Verr. Num désactivé",
+      "subtitle": "Clavier"
+    },
+    "media": {
+      "app_not_found": "Application introuvable"
+    },
+    "notify": {
+      "event": "Rappel : {title}",
+      "task": "Tâche : {title}",
+      "task_reminder": "Rappel de tâche"
+    },
+    "phone": {
+      "incoming_call": "Appel entrant",
+      "received": "Reçu du téléphone",
+      "received_text": "{text} · copié"
+    },
+    "volume": {
+      "title": "Volume",
+      "muted": "Son coupé"
+    }
+  },
+  "launcher": {
+    "added": "Ajouté au lanceur",
+    "add_failed": "Ajout impossible",
+    "add_shortcut": "+ Ajouter",
+    "create_group": "+ Créer",
+    "confirm_force_stop": "Forcer l'arrêt ?",
+    "favorites": "Favoris",
+    "favorites_hint": "Cherchez une app puis cliquez sur l'étoile, ou tapez « + Nom = cible »",
+    "filter_placeholder": "Filtrer les applications ouvertes · Entrée pour afficher",
+    "footer_help": "Croix : fermeture normale (l'appli peut proposer d'enregistrer) · carré rouge : arrêt forcé (2 clics)",
+    "forced_close": "Fermeture forcée",
+    "groups": "Groupes d'applications",
+    "groups_hint": "« + groupe Travail : Code, Edge, Spotify » lance tout en un clic",
+    "launch_failed": "Impossible de lancer {name}",
+    "minimized": "réduite",
+    "no_apps": "Aucune application trouvée",
+    "no_apps_hint": "Entrée ouvre l'adresse si c'est un site · « + » pour créer un raccourci",
+    "no_output": "(aucune sortie)",
+    "no_results": "Aucun résultat",
+    "no_running": "Aucune application ouverte",
+    "powershell_done": "PowerShell terminé",
+    "powershell_error": "PowerShell en erreur",
+    "ps_help": "Entrée pour exécuter dans PowerShell :",
+    "recently_used": "Récemment utilisées",
+    "running": "En cours",
+    "running_count": "En cours ({count})",
+    "running_hint": "Les fenêtres ouvertes apparaissent ici",
+    "search_placeholder": "Rechercher une app (Ctrl+Alt+Espace) · + Nom = cible · > commande · py: script.py · site.com",
+    "stopped": "{name} arrêté",
+    "timeout": "Délai dépassé (120 s)",
+    "views": {
+      "home": "Lancer",
+      "running": "En cours",
+      "running_count": "En cours ({count})"
+    },
+    "window_count": "{count} fenêtres",
+    "kinds": {
+      "app": "Application",
+      "uwp": "Application Store",
+      "url": "Site web",
+      "folder": "Dossier",
+      "file": "Fichier",
+      "ps": "PowerShell",
+      "py": "Script Python",
+      "unknown": "Élément"
+    },
+    "add_help": "Entrée pour ajouter. Exemples : « + GitHub = https://github.com », « + Notes = notepad.exe C:\\notes.txt », « + Projets = D:\\Code », « + Disque = ps: Get-PSDrive C », « + Backup = py: C:\\scripts\\backup.py », « + groupe Travail : Visual Studio Code, Microsoft Edge, Spotify »."
+  },
+  "media": {
+    "player": "Lecteur multimédia"
+  },
+  "network": {
+    "wifi": {
+      "connected": "Wi-Fi connecté",
+      "connect_failed": "Connexion impossible",
+      "bad_password": "mot de passe incorrect ?",
+      "error": "Erreur Wi-Fi"
+    },
+    "bt": {
+      "connected": "Appareil connecté",
+      "connect_failed": "Connexion impossible",
+      "disconnected": "Appareil déconnecté",
+      "disconnect_failed": "Déconnexion impossible",
+      "check_hint": "allumé et à portée ?"
+    }
+  },
+  "phone": {
+    "connect_title": "Connecter un téléphone",
+    "connected": "Connecté",
+    "disabled_hint": "Fichiers, texte, télécommande",
+    "enable_connection": "Activez la connexion locale",
+    "file_fallback": "fichier",
+    "file_received": "Fichier reçu du téléphone",
+    "link_help": "Via « Lien avec Windows » : les notifications et appels du téléphone apparaissent ici et dans l'île.",
+    "local_connection": "Connexion locale",
+    "new_link": "Nouveau lien",
+    "no_device": "Aucun téléphone connecté — scannez le QR code",
+    "notification_permission": "Autorisez l'accès aux notifications : Paramètres › Confidentialité › Notifications.",
+    "notifications": "Notifications du téléphone",
+    "open_link": "Ouvrir Lien avec Windows",
+    "phone": "Téléphone",
+    "same_wifi_hint": "Même Wi-Fi. Au 1er accès : « Avancé › Continuer ».",
+    "scan_wifi": "Scannez pour rejoindre ce réseau",
+    "seen": "Vu {ago}",
+    "send_placeholder": "Envoyer du texte au téléphone (Entrée)",
+    "sent": "Envoyé au téléphone",
+    "server_error": "Connexion téléphone impossible",
+    "shelf_files": {
+      "one": "{count} fichier de l'étagère disponible sur le téléphone",
+      "other": "{count} fichiers de l'étagère disponibles sur le téléphone"
+    },
+    "sync_clipboard": "Synchroniser le presse-papiers vers le téléphone",
+    "wifi_not_found": "Wi-Fi introuvable",
+    "invalid_link": "Lien invalide : rescannez le QR code sur le PC.",
+    "web": {
+      "status": {
+        "connected": "Connecté au PC",
+        "offline": "PC injoignable — même Wi-Fi ?"
+      },
+      "send_to_pc": "Envoyer au PC",
+      "text_placeholder": "Texte, lien, code. (copié dans le presse-papiers du PC)",
+      "send": "Envoyer",
+      "my_clipboard": "Mon presse-papiers",
+      "received_from_pc": "Reçu du PC",
+      "inbox_empty": "Rien pour l'instant. Depuis l'île : onglet Téléphone › « Envoyer au téléphone ».",
+      "pc_files": "Fichiers du PC",
+      "files_empty": "Glissez des fichiers dans l'île pour les retrouver ici.",
+      "send_files": "Envoyer des fichiers au PC",
+      "choose_files": "Touchez pour choisir des photos ou fichiers",
+      "remote": "Télécommande",
+      "prev": "Précédent",
+      "play": "Lecture / pause",
+      "next": "Suivant",
+      "volume_down": "Volume moins",
+      "mute": "Couper le son",
+      "volume_up": "Volume plus",
+      "prev_slide": "Diapositive précédente",
+      "space": "Espace",
+      "next_slide": "Diapositive suivante",
+      "open_link_placeholder": "Ouvrir un lien sur le PC",
+      "open": "Ouvrir",
+      "copy": "Copier",
+      "download": "Télécharger",
+      "toast": {
+        "copied_to_pc": "Copié sur le PC",
+        "send_failed": "Échec de l'envoi",
+        "clipboard_empty": "Presse-papiers vide",
+        "clipboard_sent": "Presse-papiers envoyé",
+        "clipboard_denied": "Autorisez l'accès au presse-papiers",
+        "copied": "Copié",
+        "selected": "Texte sélectionné : copiez-le",
+        "received": "Reçu sur le PC",
+        "upload_failed": "Échec : {name}",
+        "pc_unreachable": "PC injoignable",
+        "opened": "Ouvert sur le PC"
+      },
+      "units": {
+        "byte": "{value} o",
+        "kilobyte": "{value} Ko",
+        "megabyte": "{value} Mo",
+        "gigabyte": "{value} Go"
+      }
+    }
+  },
+  "system": {
+    "sounds": "Sons système"
+  },
+  "timers": {
+    "add_one_minute": "+1 min",
+    "add_placeholder": "Minuteur personnalisé : « 12m thé », « 1h30 four », « 90s » (Entrée)",
+    "empty": "Aucun minuteur",
+    "empty_hint": "Plusieurs minuteurs peuvent tourner en même temps",
+    "finished": " · terminé",
+    "paused": " · en pause",
+    "fired": {
+      "timer": "Minuteur terminé",
+      "session": "Session terminée",
+      "next_break": "{name} de {minutes} min",
+      "break_over": "Fin de la pause",
+      "back_to_work": "Au travail !"
+    },
+    "pomodoro": {
+      "work": "Concentration",
+      "short_break": "Petite pause",
+      "long_break": "Grande pause",
+      "focus_phase": "Focus",
+      "pause_phase": "Pause",
+      "work_duration": "Travail",
+      "long_break_every": "Grande pause tous les",
+      "focus_mode": "Mode concentration",
+      "focus_hint": "Lance un Pomodoro et active Ne pas déranger",
+      "label_placeholder": "Sur quoi travaillez-vous ?",
+      "default_label": "Concentration",
+      "session_summary": "{count} session(s) aujourd'hui · cycle de {every}",
+      "auto_next": "Enchaîner automatiquement"
+    },
+    "stopwatch": {
+      "lap": "Tour",
+      "reset": "Réinitialiser",
+      "empty": "Les tours apparaîtront ici",
+      "lap_number": "Tour {number}"
+    },
+    "alarms": {
+      "default_label": "Alarme",
+      "empty": "Aucune alarme",
+      "once": "Une fois",
+      "every_day": "Tous les jours",
+      "weekdays": "En semaine",
+      "weekend": "Week-end",
+      "next": "Prochaine alarme dans {delay} — {label}",
+      "placeholder": "« 7h30 Réveil semaine », « 14:00 Sport week-end », « 22h Dormir tous les jours »"
+    },
+    "stats": {
+      "today": "Aujourd'hui",
+      "sessions": "Sessions",
+      "week": "7 jours",
+      "streak": "Série",
+      "streak_days": {
+        "one": "{count} j",
+        "other": "{count} j"
+      },
+      "history": "Historique des sessions",
+      "history_hint": "Terminez un Pomodoro ou un minuteur pour remplir l'historique",
+      "minutes_value": "{value} min"
+    }
+  },
+  "tray": {
+    "keep_open": "Garder ouvert",
+    "start_with_windows": "Démarrer avec Windows",
+    "dock": "Applis ouvertes à côté de l'île",
+    "hide_taskbar": "Masquer la barre des tâches",
+    "clipboard": "Presse-papiers",
+    "open_clipboard": "Ouvrir  (Ctrl+Alt+V)",
+    "pause_history": "Mettre l'historique en pause",
+    "clear_history": "Effacer l'historique…",
+    "clear_confirm": "Effacer tout l'historique du presse-papiers ?\n(les éléments épinglés sont conservés)",
+    "sync_choose": "Synchroniser via un dossier cloud…",
+    "sync_current": "Synchronisé : {path}",
+    "sync_stop": "Arrêter la synchronisation",
+    "sync_dialog": "Dossier synchronisé (OneDrive, Google Drive, Dropbox…)",
+    "quit": "Quitter"
+  },
+  "wallet": {
+    "title": "Patrimoine",
+    "loading": "Chargement du portefeuille…",
+    "binance_error": "Erreur Binance : {message}",
+    "no_assets": "Aucun actif (ou uniquement des poussières)",
+    "change_24h": "{value} % 24 h",
+    "price_change": "{value} %",
+    "updated": "  ·  maj {when}",
+    "categories": {
+      "spot": "Spot",
+      "funding": "Financement",
+      "earn": "Earn"
+    },
+    "hide_dust": "Masquer < {value}",
+    "forget_title": "Déconnecter Binance ?",
+    "forget_hint": "Cliquez à nouveau sur Réglages pour oublier la clé",
+    "api_key": "Clé API (API Key)",
+    "api_key_saved": "Clé API enregistrée — collez-en une autre pour la remplacer",
+    "secret_key": "Clé secrète (Secret Key)",
+    "open_api_management": "Ouvrir la gestion des API",
+    "api_management_url": "https://www.binance.com/fr/my/settings/api-management",
+    "setup": {
+      "step_1": "1. Binance › Profil › Gestion des API › Créer une API (« générée par le système »).",
+      "step_2": "2. Laissez UNIQUEMENT « Activer la lecture » (aucun trading, aucun retrait).",
+      "step_3": "3. Collez la clé API puis la clé secrète ci-dessous (Ctrl+V puis Entrée)."
+    }
+  }
+}
