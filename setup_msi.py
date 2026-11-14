@@ -15,7 +15,7 @@ from cx_Freeze import Executable, setup
 ROOT = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(ROOT, "src"))  # let cx_Freeze analyze the package from src/
 
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 UPGRADE_CODE = "{32BDF7EE-F765-4C20-AB17-EBB9CFFF65DA}"  # never change: enables upgrades
 
 build_exe_options = {

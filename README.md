@@ -127,7 +127,7 @@ credentials are stored in plain text; use keys with restricted permissions.
 
 ### Windows installer (recommended)
 
-1. Download **`DynamicIsland-1.0.0-win64.msi`** from the
+1. Download **`DynamicIsland-1.1.0-win64.msi`** from the
    [Releases](https://github.com/arielDirema/dynamic-island/releases) page.
 2. Run it and follow the wizard. **Administrator rights are not required**: the application installs
    for the current user in `%LOCALAPPDATA%\Programs\Dynamic Island`.
@@ -140,8 +140,11 @@ Choose *More info* › *Run anyway*.
 **Uninstall**: Settings › Apps › Installed apps › *Dynamic Island* › Uninstall. Quit the island first
 (right-click › Quit) to restore the taskbar. Your data in `%APPDATA%\DynamicIsland` is preserved.
 
-**Portable build**: `DynamicIsland-1.0.0-portable-win64.zip` can be extracted anywhere and started with
-`DynamicIsland.exe` without installation.
+**Upgrading**: run the newer `.msi`; it replaces the installed version and keeps your data.
+
+**Portable build**: release 1.0.0 also ships `DynamicIsland-1.0.0-portable-win64.zip`, which can be
+extracted anywhere and started with `DynamicIsland.exe` without installation. Newer releases are built
+automatically by GitHub Actions and publish the `.msi` only.
 
 ### From source
 
